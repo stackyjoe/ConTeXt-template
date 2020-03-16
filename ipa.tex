@@ -1,0 +1,37 @@
+\define\IPA{{\sc ipa}}
+\def\IPAtext[#1]{{\ipa #1}}
+\def\IPAsegment#1{/{\ipa{#1}}/}
+
+
+\input{ipa_chart.tex}
+
+\def\IPAlookup[#1][#2]{\startluacode
+description = '#2'
+if '#1' == "vowel" then
+	representation = parse_and_look_up_description(description, ipa.vowels)
+	if representation ~= nil and representation ~= '' then
+		tex.sprint(representation)
+	else
+		print("Failed lookup: ", description)
+	end
+
+elseif '#1' == "consonant" then
+	representation = parse_and_look_up_description(description, ipa.consonants)
+
+	if representation ~= nil and representation ~= '' then
+		tex.sprint(representation)
+	else
+		print("Failed lookup: ", description)
+	end
+elseif '#1' == "combining" then
+	representation = parse_and_look_up_description(description, ipa.combining)
+
+	if representation ~= nil and representation ~= '' then
+		tex.sprint(representation)
+	else
+		print("Failed lookup: ", description)
+	end
+end
+\stopluacode
+}
+

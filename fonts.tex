@@ -1,0 +1,74 @@
+%&context
+
+% Load legacy fonts
+
+\font\tensy  =cmsy10 at \mathstyleface\textstyle
+\font\sevensy=cmsy7  at \mathstyleface\scriptstyle
+\font\fivesy =cmsy5  at \mathstyleface\scriptscriptstyle
+
+\font\tenscr  =rsfs10 at \mathstyleface\textstyle
+\font\sevenscr=rsfs7  at \mathstyleface\scriptstyle
+\font\fivescr =rsfs5  at \mathstyleface\scriptscriptstyle
+
+\font\teneuscr  =eusm10 at \mathstyleface\textstyle
+\font\seveneuscr=eusm7  at \mathstyleface\scriptstyle
+\font\fiveeuscr =eusm5  at \mathstyleface\scriptscriptstyle
+
+% \skewchar
+
+\skewchar\tensy  ='60
+\skewchar\sevensy='60
+\skewchar\fivesy ='60
+
+\skewchar\tenscr  ='177
+\skewchar\sevenscr='177
+\skewchar\fivescr ='177
+
+\skewchar\teneuscr  ='60
+\skewchar\seveneuscr='60
+\skewchar\fiveeuscr ='60
+
+% Allocate family
+
+\newfam\calfam
+\newfam\scrfam
+\newfam\euscrfam
+
+% Assign font families
+
+\textfont        \calfam=\tensy
+\scriptfont      \calfam=\sevensy
+\scriptscriptfont\calfam=\fivesy
+
+\textfont        \scrfam=\tenscr
+\scriptfont      \scrfam=\sevenscr
+\scriptscriptfont\scrfam=\fivescr
+
+\textfont        \euscrfam=\teneuscr
+\scriptfont      \euscrfam=\seveneuscr
+\scriptscriptfont\euscrfam=\fiveeuscr
+
+% Make a macro wrapper
+
+% Backup original definition of \cal and \mathcal
+\let\normalcal\cal
+\let\normalmathcal\mathcal
+
+\def\cal{\fam\calfam}
+\unexpanded\def\mathcal#1{{\cal#1}}
+
+\def\scr{\fam\scrfam}
+\unexpanded\def\mathscr#1{{\scr#1}}
+
+\def\euscr{\fam\euscrfam}
+\unexpanded\def\EuScr#1{{\euscr#1}}
+
+\definefontfamily[mainface][serif][TeX Gyre Schola][it=style:italic,bf=style:bold,bi=style:bolditalic,tf=style:regular]
+\definefontfamily[mainface][math][TeX Gyre Schola Math][it=style:italic,bf=style:bold,bi=style:bolditalic,tf=style:regular]
+\definefallbackfamily[mainface][serif][Latin Modern][range=ipaextensions]
+
+%\definefont[ipa][name:Doulos SIL]
+\definefont[ipa][name:dejavusans]
+
+\setupbodyfont[mainface]
+

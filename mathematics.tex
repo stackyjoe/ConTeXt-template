@@ -1,0 +1,37 @@
+%&context
+
+\define[1]\powersetof{{{\scr{P}}(#1)}}
+
+\define[2]\setof{\{ {#1} \,\,:\,\, {#2}  \}}
+
+\define[2]\setof{\mathematics{\{ {#1} \,\,:\,\, {#2}  \}}}
+
+\definehspace[tenth][0.1 em]
+\definehspace[fifth][0.2em]
+\definehspace[one][1.0em]
+\definehspace[two][2.0em]
+
+\define\llparen{\(\!\(}
+\define\rrparen{\)\!\)}
+\define\llbracket{\[\!\[}
+\define\rrbracket{\]\!\]}
+
+\let\Subset\subset
+\def\subset{\unhyphenated{\hbox{\hspace[fifth]}\raisebox{0.15ex}\hbox{\mathematics{\mathbin{\Subset}}}\hbox{\hspace[fifth]}}}
+
+\let\Supset\supset
+\def\supset{\unhyphenated{\hbox{\hspace[fifth]}\raisebox{0.15ex}\hbox{\mathematics{\mathbin{\Supset}}}\hbox{\hspace[fifth]}}}
+
+\define[1]\OperatorName{\mathematics{\mathop{\tf{#1}}}}
+\define[2]\RegisterOperatorName{\RegisterCommand{#1}{\\OperatorName{#2}}}
+
+\RegisterOperatorName{limit}{lim}
+\RegisterOperatorName{colimit}{colim}
+
+\RegisterOperatorName{supremum}{sup}
+\RegisterOperatorName{infimum}{inf}
+
+\RegisterOperatorName{spectrum}{spec}
+\RegisterOperatorName{normspectrum}{spn}
+\RegisterOperatorName{valspectrum}{spv}
+\RegisterOperatorName{aspectrum}{spa}

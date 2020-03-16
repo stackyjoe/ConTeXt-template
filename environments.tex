@@ -1,0 +1,130 @@
+\defineenumeration[question]
+	[text=Question,
+	style=slanted,
+	title=yes,
+	titleleft=,
+	titleright=,
+	location=serried,
+	margin=0.001 ex,
+	width=fit,
+	right={. },
+	%after={\hfill{$\tfx ////$}},
+	after={\hfill{${\qed}$}},
+	]
+
+\defineenumeration[aside]
+	[
+	text=,
+	number=no,
+	style=normal,
+	display=yes,
+	title=no,
+	location=left%hanging,
+	width=fit,
+	after={\hfill\blank[small]\hrule},
+	before={\hrule}
+	]
+
+\defineenumeration[numberedtheorem]
+	[
+	text=Theorem,
+	number=yes,
+	]
+
+\defineenumeration[theorem]
+	[
+	text=Theorem,
+	number=no
+	]
+
+\defineenumeration[proposition]
+	[
+	text=Proposition,
+	]
+
+\defineenumeration[corollary]
+	[
+	text=Corollary,
+	]
+
+\defineenumeration[lemma]
+	[
+	text=Lemma,
+	]
+
+\setupenumerations[theorem,lemma,proposition,corollary]
+	[
+	after={\blank[medium]},
+	counter=theorem,
+	location=left,
+	alternative=hanging,
+	right={.},
+	sectionnumber=no,
+	margin=0.001 ex,
+	style=normal,
+	title=yes,
+	titleleft=,
+	titleright=,
+	width=fit,
+	]
+
+\setupnumber[theorem][way=bysection]
+
+\defineenumeration[proof]
+	[text=Proof,
+	style=normal,
+	title=yes,
+	titleleft=,
+	titleright=,
+	location=left,
+	alternative=hanging,
+	margin=0.001 ex,
+	number=no,
+	width=fit,
+	right={.},
+	after={\hfill{$\tfa \square$}},
+	before={\blank[small]}
+	]
+
+\defineenumeration[proofinprogress]
+	[text=Proof,
+	style=normal,
+	title=yes,
+	titleleft=,
+	titleright=,
+	%location=serried,
+	alternative=left,
+	number=no,
+	width=fit,
+	right={.},
+	after={\hfill{$\tfx ?$}}
+	]
+
+\define\startprooftemplate{\startframedtext[location=middle]}
+\define\stopprooftemplate{\stopframedtext}
+
+
+\defineenumeration[definition]
+	[text=Definition,
+	style=normal,
+	title=yes,
+	titleleft=,
+	titleright=,
+	location=serried,
+	alternative=hanging,
+	margin=0.001 ex,
+	number=no,
+	width=fit,
+	right={.},
+	after={\hfill{$\tfx \triangleright$}}
+	]
+
+% Do not indent paragraphs after \stopitemize
+\setupitemgroup[itemize][indentnext=no,margin=2.0 em]
+
+% indent paragraphs after section heads
+\setuphead[section][indentnext=yes]
+
+% indent the paragraphs after all sectioning heads 
+\setupheads[indentnext=yes] 
+

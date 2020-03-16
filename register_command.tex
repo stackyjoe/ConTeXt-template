@@ -1,0 +1,30 @@
+%&context
+
+
+\startluacode
+
+	function_registry = {}
+	print("register_command.tex running.\n")
+
+function register_command(identifier, payload)
+	--print("    register_command() called on " .. identifier .. " and " .. payload )
+
+
+	if function_registry[identifier] then
+		error("\"register_command()\" from register_command.tex called twice on same identifier.")
+	end
+
+	function_registry[identifier] = payload 
+
+	command_contents = "\\define\\" .. identifier .. "{" .. payload .. "}"
+
+	-- print(command_contents)
+	context(command_contents)
+
+end
+
+
+\stopluacode
+
+\define[2]\RegisterCommand{\ctxlua{register_command( "#1", "#2")}}
+

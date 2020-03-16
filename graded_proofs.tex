@@ -1,0 +1,95 @@
+% Graded proofs in ConTeXt 
+\startluacode
+	valid_lods = {}
+	valid_lods["sketch"] = true
+	valid_lods["terse"] = true
+	valid_lods["detailed"] = true
+		
+	manual_overrides = {}
+	manual_overrides["dog"] = "terse"
+	
+	
+	used_proof_ids = {}
+
+	
+	-- Set default level of detail
+	document_lod = "sketch"
+	--            = "terse"
+	--            = "detailed"
+	
+	-- These are global variables you can set/unset if you wish to use them.
+	chapter_lod = nil
+	section_lod = nil
+	subsection_lod = nil
+\stopluacode
+
+\defineenumeration[gradedproof]
+	[text=Proof,
+	style=normal,
+	title=yes,
+	titleleft=,
+	titleright=,
+	location=serried,
+	width=fit,
+	right={. },
+	%after={\hfill{\tfx \emph{////}}},
+	after={\hfill{\tfx \square}},
+	]
+
+\let\StopGradedProof\stopgradedproof
+\let\StartGradedProof\startgradedproof
+
+\define\startgradedproof{\dosingleempty\startgradedproofoptions}
+\def\startgradedproofoptions[#1]{
+	\iffirstargument
+	\startluacode
+		if used_proof_ids["#1"] ~= nil then
+			print("Duplicate proof ID!")
+		end
+		
+		proof_id = "#1"
+		used_proof_ids[proof_id] = true
+	\stopluacode
+	\fi
+	\StartGradedProof
+}
+
+\define\stopgradedproof{
+\StopGradedProof
+\startluacode
+	proof_id = nil
+\stopluacode
+}
+
+\define[2]\gradedproof{
+\startluacode
+	local level_of_detail = "#1"
+	if valid_lods[level_of_detail] == nil then
+		print("Incorrect level of detail specified")
+	end
+	
+	local appropriate_level = document_lod
+
+	if chapter_lod ~= nil then
+		appropriate_level = chapter_lod
+	end
+	
+	if section_lod ~= nil then
+		appropriate_level = section_lod
+	end
+	
+	if subsection_lod ~= nil then
+		appropriate_level = subsection_lod
+	end
+	
+	if proof_id ~= nil and manual_overrides[proof_id] ~= nil then
+		appropriate_level = manual_overrides[proof_id]
+	end
+	
+	if level_of_detail == appropriate_level then
+		context("#2")
+	end
+
+\stopluacode
+}
+
