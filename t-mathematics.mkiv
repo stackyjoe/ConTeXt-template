@@ -1,10 +1,20 @@
-%&context
+%D \module
+%D   [     file=t-mathematics, % e.g. t-xxx
+%D      version=2020.03.18, % e.g. 20xx.xx.xx
+%D        title=Simple Mathematics Macros, % e.g. \CONTEXT\ User Module
+%D     subtitle=Simple mathematics macros for \CONTEXT\,
+%D       author=Joseph Berner,
+%D         date=\currentdate, % e.g. \currentdate
+%D    copyright=Berner, % e.g. <author>
+%D      license=2-Clause BSD] % e.g. 'Public Domain' or 'GNU GPL 2.0'
+
+\unprotect
 
 \define[1]\powersetof{{{\scr{P}}(#1)}}
-
 \define[2]\setof{\{ {#1} \,\,:\,\, {#2}  \}}
-
 \define[2]\setof{\mathematics{\{ {#1} \,\,:\,\, {#2}  \}}}
+\define\qed{{\math{\square}}}
+\define\bigolquestionmark{{\blank[big]\midaligned{\tfc \vdots}\blank[big]}}
 
 \definehspace[tenth][0.1 em]
 \definehspace[fifth][0.2em]
@@ -22,6 +32,7 @@
 \let\Supset\supset
 \def\supset{\unhyphenated{\hbox{\hspace[fifth]}\raisebox{0.15ex}\hbox{\mathematics{\mathbin{\Supset}}}\hbox{\hspace[fifth]}}}
 
+\def\operator[#1]{{\typeface{\Umathordopspacing\displaystyle=4mu plus 2mu  #1}}}
 \define[1]\OperatorName{\mathematics{\mathop{\tf{#1}}}}
 \define[2]\RegisterOperatorName{\RegisterCommand{#1}{\\OperatorName{#2}}}
 
@@ -35,3 +46,7 @@
 \RegisterOperatorName{normspectrum}{spn}
 \RegisterOperatorName{valspectrum}{spv}
 \RegisterOperatorName{aspectrum}{spa}
+
+\protect
+\endinput
+

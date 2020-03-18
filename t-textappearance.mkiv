@@ -1,4 +1,14 @@
-%&context
+%D \module
+%D   [     file=t-textappearance, % e.g. t-xxx
+%D      version=2020.03.18, % e.g. 20xx.xx.xx
+%D        title=Simple Textappearance, % e.g. \CONTEXT\ User Module
+%D     subtitle=Fonts and spacing et al,
+%D       author=Joseph Berner,
+%D         date=\currentdate, % e.g. \currentdate
+%D    copyright=Berner, % e.g. <author>
+%D      license=2-Clause BSD] % e.g. 'Public Domain' or 'GNU GPL 2.0'
+
+\unprotect
 
 % Load legacy fonts
 
@@ -71,4 +81,27 @@
 \definefont[ipa][name:dejavusans]
 
 \setupbodyfont[mainface]
+
+\setuphead[section][
+	header=empty,
+	%alternative=middle,
+	style=bold,
+	number=no,
+%	numbercommand=\S\groupedcommand{}{},
+	after={\blank[\openlineheight]},
+	]
+	
+\setuphead[subsection][
+	header=empty,
+	%alternative=middle,
+	style=bold,
+	number=no,
+%	numbercommand=\S\groupedcommand{}{},
+	after={\blank[0.5\openlineheight]},
+	]
+
+\setuppagenumbering[location={footer,middle}]
+
+\protect
+\endinput
 

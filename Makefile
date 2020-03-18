@@ -1,20 +1,21 @@
 .POSIX:
 package: build
-	mv main.pdf document.pdf 
+	mv make_stub.pdf document.pdf 
 build: 
-	context main.tex
+	context make_stub.tex
 clean:
-	rm main.log main.tuc
+	rm make_stub.log make_stub.tuc
 
 fetch_template:
-	cp -R ../template/*.tex ./
-	rm ./main_stub.tex
+	cp ../ConTeXt-template/*.mkiv ./
+	cp ../ConTeXt-template/*.lua ./
 
 fetch_makefile:
-	cp ../template/Makefile ./
+	cp ../ConTeXt-template/Makefile ./
 
 save_template:
-	find . -regex ".*\.tex" | sed '\|\.\/main\.tex|d' | xargs -I '{}' cp '{}' ../template/
+	ls ./*.mkiv |  xargs -I '{}' cp '{}' ../ConTeXt-template/
+	ls ./*.lua |  xargs -I '{}' cp '{}' ../ConTeXt-template/
 
 save_makefile:
-	cp ./Makefile ../template/
+	cp ./Makefile ../ConTeXt-template/

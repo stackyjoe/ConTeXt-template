@@ -1,3 +1,15 @@
+%D \module
+%D   [     file=t-environments, % e.g. t-xxx
+%D      version=2020.03.18, % e.g. 20xx.xx.xx
+%D        title=Simple Environments, % e.g. \CONTEXT\ User Module
+%D     subtitle='Definitions, Proofs, Theorems, etc',
+%D       author=Joseph Berner,
+%D         date=\currentdate, % e.g. \currentdate
+%D    copyright=Berner, % e.g. <author>
+%D      license=2-Clause BSD] % e.g. 'Public Domain' or 'GNU GPL 2.0'
+
+\unprotect
+
 \defineenumeration[question]
 	[text=Question,
 	style=slanted,
@@ -127,4 +139,8 @@
 
 % indent the paragraphs after all sectioning heads 
 \setupheads[indentnext=yes] 
+
+\define\placebibliography{{\tfb \bf References } \blank[\openlineheight] \placepublications}
+\protect
+\endinput
 
