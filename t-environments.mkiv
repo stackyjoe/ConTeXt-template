@@ -9,7 +9,6 @@
 %D      license=2-Clause BSD] % e.g. 'Public Domain' or 'GNU GPL 2.0'
 
 \unprotect
-
 \defineenumeration[question]
 	[text=Question,
 	style=slanted,
@@ -31,10 +30,11 @@
 	style=normal,
 	display=yes,
 	title=no,
-	location=left%hanging,
+	location=hanging,
 	width=fit,
 	after={\hfill\blank[small]\hrule},
-	before={\hrule}
+	before={\hrule},
+	inbetween={\blank[nowhite]}
 	]
 
 \defineenumeration[numberedtheorem]
@@ -48,23 +48,49 @@
 	text=Theorem,
 	number=no
 	]
-
+\defineenumeration[numberedproposition]
+	[
+	text=Proposition,
+	number=yes,
+	]
 \defineenumeration[proposition]
 	[
 	text=Proposition,
+	number=no,
+	]
+\defineenumeration[numberedcorollary]
+	[
+	text=Corollary,
+	number=yes,
 	]
 
 \defineenumeration[corollary]
 	[
 	text=Corollary,
+	number=no,
 	]
-
+\defineenumeration[numberedlemma]
+	[
+	text=Lemma,
+	number=yes,
+	]
 \defineenumeration[lemma]
 	[
 	text=Lemma,
+	number=no,
 	]
 
-\setupenumerations[theorem,lemma,proposition,corollary]
+\defineenumeration[numberedaxiom]
+	[
+	text=Axiom,
+	number=yes,
+	]
+\defineenumeration[axiom]
+	[
+	text=Axiom,
+	number=no,
+	]
+\setupenumerations[theorem,lemma,proposition,corollary,axiom,numberedtheorem,numberedproposition,numberedlemma,numberedcorollary,numberedaxiom]
 	[
 	after={\blank[medium]},
 	counter=theorem,
@@ -79,6 +105,7 @@
 	titleright=,
 	width=fit,
 	]
+
 
 \setupnumber[theorem][way=bysection]
 
