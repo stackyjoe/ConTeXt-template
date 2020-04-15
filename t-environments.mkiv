@@ -109,6 +109,7 @@
 	after={\blank[medium]},
 	counter=theorem,
 	location=left,
+	indenting=yes,
 	alternative=hanging,
 	right={.},
 	sectionnumber=no,
@@ -165,6 +166,7 @@
 	titleleft=,
 	titleright=,
 	location=serried,
+	indenting=yes,
 	alternative=hanging,
 	margin=0.001 ex,
 	number=no,
@@ -176,11 +178,6 @@
 % Do not indent paragraphs after \stopitemize
 \setupitemgroup[itemize][indentnext=no,margin=2.0 em]
 
-% indent paragraphs after section heads
-\setuphead[section][indentnext=yes]
-
-% indent the paragraphs after all sectioning heads 
-\setupheads[indentnext=yes] 
 
 \define\placebibliography{{\tfb \bf References } \blank[\openlineheight] \placepublications}
 \protect

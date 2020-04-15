@@ -85,7 +85,7 @@
 \setuphead[section][
 	header=empty,
 	%alternative=middle,
-	style=bold,
+	style=\tfb\bf,
 	number=no,
 %	numbercommand=\S\groupedcommand{}{},
 	after={\blank[\openlineheight]},
@@ -94,7 +94,7 @@
 \setuphead[subsection][
 	header=empty,
 	%alternative=middle,
-	style=bold,
+	style=\tfa\bf,
 	number=no,
 %	numbercommand=\S\groupedcommand{}{},
 	after={\blank[0.5\openlineheight]},
@@ -103,6 +103,11 @@
 \setuppagenumbering[location={footer,middle}]
 \setupindenting[yes,medium]
 
+% indent paragraphs after section heads
+\setuphead[section][indentnext=yes]
+
+% indent the paragraphs after all sectioning heads 
+\setupheads[indentnext=yes] 
 \protect
 \endinput
 
