@@ -79,7 +79,11 @@
 	text=Lemma,
 	number=no,
 	]
-
+\defineenumeration[example]
+	[
+	text=Example,
+	number=no,
+	]
 \defineenumeration[numberedaxiom]
 	[
 	text=Axiom,
@@ -90,7 +94,17 @@
 	text=Axiom,
 	number=no,
 	]
-\setupenumerations[theorem,lemma,proposition,corollary,axiom,numberedtheorem,numberedproposition,numberedlemma,numberedcorollary,numberedaxiom]
+\defineenumeration[numberedporism]
+	[
+	text=Porism,
+	number=yes,
+	]
+\defineenumeration[porism]
+	[
+	text=Porism,
+	number=no,
+	]
+\setupenumerations[theorem,lemma,proposition,corollary,axiom,porism,numberedtheorem,numberedproposition,numberedlemma,numberedcorollary,numberedaxiom,numberedporism,example]
 	[
 	after={\blank[medium]},
 	counter=theorem,
@@ -117,6 +131,7 @@
 	titleright=,
 	location=left,
 	alternative=hanging,
+	indenting=yes,
 	margin=0.001 ex,
 	number=no,
 	width=fit,
@@ -155,7 +170,7 @@
 	number=no,
 	width=fit,
 	right={.},
-	after={\hfill{$\tfx \triangleright$}}
+	after={\hfill}%{$\tfx \triangleright$}}
 	]
 
 % Do not indent paragraphs after \stopitemize
